@@ -28,7 +28,6 @@ public class Atributos {
     //Atributos    
     private int base;
     private int altura;
-    private int rectangulo;
     private int superficie;
     private int perimetro;
     
