@@ -32,7 +32,7 @@ public class Entidades {
     
     public Entidades(){
         
-        this.capacidadMaxima = 5000;
+        this.capacidadMaxima = 1000;
         this.cantidadActual = 0;  
         
     }
