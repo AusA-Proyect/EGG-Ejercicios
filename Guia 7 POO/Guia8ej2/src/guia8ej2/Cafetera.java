@@ -36,6 +36,7 @@ public class Cafetera {
         
         
         Scanner leer = new Scanner(System.in);
+        
         CafeteraServicio cafe1 = new CafeteraServicio();        
         
         Entidades cafetera1 = new Entidades();        
