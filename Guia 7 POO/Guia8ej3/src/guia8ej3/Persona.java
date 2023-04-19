@@ -46,11 +46,111 @@ public class Persona {
         
         PersonaServicios p1 = new PersonaServicios();
         
-        Entidades persona = new Entidades();
+        Entidades personas[] = new Entidades[4];
         
-        p1.CrearPersona(persona);
+        int imc[] = new int[4]; // IMC
+        boolean esMayor[] = new boolean[4]; // si es mayor?
         
-        System.out.println(persona.toString());
+        
+        for (int i=0; i<personas.length; i++) {
+            personas[i] = new Entidades();
+            personas[i] = p1.CrearPersona(personas[i]);
+            imc[i] = p1.CalcularIMC(personas[i]);
+            esMayor[i] = p1.EsMayorDeEdad(personas[i]);            
+        }
+        
+        
+        
+        for(int i=0; i<personas.length; i++){
+                System.out.println(personas[i]);
+        }
+        
+        for(int i=0; i<imc.length; i++){
+                System.out.print(imc[i]);
+                System.out.print(" ");
+        }
+        
+        System.out.println(" ");
+        
+        for(int i=0; i<esMayor.length; i++){
+                System.out.print(esMayor[i]);
+                System.out.print(" ");
+        }
+        
+        System.out.println(" ");
+        
+        // Calculando el porcentaje de los arrays        
+        int BajoPeso = 0;
+        int PesoIdeal = 0;
+        int Sobrepeso = 0;
+        int cuantosMayoresDeEdad = 0;
+
+        for (int i=0; i<4; i++) {
+            
+            if (imc[i] == -1) {
+                BajoPeso++;
+            }
+            else if (imc[i] == 0) {
+                PesoIdeal++;
+            }
+            else {
+                Sobrepeso++;
+            }
+
+            if (esMayor[i]) {
+                cuantosMayoresDeEdad++;
+            }
+        }
+
+        System.out.println("El porcentaje de personas por debajo del peso ideal: " + (BajoPeso / 4) * 100 + "%");
+        System.out.println("El porcentaje de personas en su peso ideal: " + (PesoIdeal / 4) * 100 + "%");
+        System.out.println("El porcentaje de personas con sobrepeso: " + (Sobrepeso / 4) * 100 + "%");
+        System.out.println("El porcentaje de mayores de edad: " + (int)((cuantosMayoresDeEdad / 4.0) * 100) + "%");
+        System.out.println("El porcentaje de menores de edad: " + (int)(((4 - cuantosMayoresDeEdad) / 4.0) * 100) + "%");
+        
+//        Entidades persona1 = new Entidades();
+//        Entidades persona2 = new Entidades();
+//        Entidades persona3 = new Entidades();
+//        Entidades persona4 = new Entidades();
+//        
+//        
+//        //Persona 1
+//        p1.CrearPersona(persona1);        
+//        p1.EsMayorDeEdad(persona1);
+//        p1.CalcularIMC(persona1);   
+//        
+//        
+//        //Persona 2
+//        p1.CrearPersona(persona2);        
+//        p1.EsMayorDeEdad(persona2);
+//        p1.CalcularIMC(persona2);
+//        
+//        
+//        //Persona 3
+//        p1.CrearPersona(persona3);        
+//        p1.EsMayorDeEdad(persona3);
+//        p1.CalcularIMC(persona3);
+//        
+//        
+//        //Persona 4
+//        p1.CrearPersona(persona4);        
+//        p1.EsMayorDeEdad(persona4);
+//        p1.CalcularIMC(persona4);
+//        
+//        System.out.println(persona1.toString());
+//        System.out.println(persona2.toString());
+//        System.out.println(persona3.toString());
+//        System.out.println(persona4.toString());
+        
+//        for (int i=0; i<array1.length; i++) {
+//            array1[i] = persona1.getImc();
+//        }
+//        
+//        for(int i=0; i<array1.length; i++){
+//                System.out.println(array1[i]);
+//        }     
+        
+
         
     }
     

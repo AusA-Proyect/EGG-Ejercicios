@@ -17,17 +17,14 @@ public class PersonaServicios {
     private Scanner read = new Scanner(System.in).useDelimiter("\n");
     
     String sexo;
+    int imc;
     
-    public void CrearPersona(Entidades persona){
+    public Entidades CrearPersona(Entidades persona){
         
         System.out.println("Ingrese su nombre");
         persona.setNombre(read.next());
         System.out.println("Ingrese su edad");
-        persona.setEdad(read.nextInt());
-        
-        if (persona.getEdad() >= 18){
-            persona.setEsMayor(true);
-        }
+        persona.setEdad(read.nextInt());       
         
         System.out.println("Ingrese su sexo - H para hombre - M para mujer - O para otro. ");
         sexo = read.next().toUpperCase();
@@ -39,26 +36,41 @@ public class PersonaServicios {
             
         }
         
-        if (sexo.equals("H") || sexo.equals("M") && sexo.equals("O")){
+        if (sexo.equals("H") || sexo.equals("M") || sexo.equals("O")){
             persona.setSexo(sexo);
         }
-      
-//        do
-//        {
-//            System.out.println("Ingrese su sexo - H para hombre - M para mujer - O para otro. ");
-//            sexo = read.next();
-//            
-//        } while (!sexo.equals("H") && !sexo.equals("M") && !sexo.equals("O"));
         
         System.out.println("Ingrese su peso");
         persona.setPeso(read.nextInt());
         System.out.println("Ingrese su altura");
         persona.setAltura(read.nextDouble());
         
+        return persona;
+        
     }    
     
-    public void CalcularIMC(Entidades persona){
+    public boolean EsMayorDeEdad(Entidades persona){
         
+        if (persona.getEdad() >= 18){
+            persona.setEsMayor(true);
+        }
+        return persona.isEsMayor();
+    }
+    
+    public int CalcularIMC(Entidades persona){
+        
+        imc = persona.getPeso() / (int) Math.pow(persona.getAltura(), 2);
+        
+        if (imc<20){
+            persona.setImc(-1);
+        }
+        else if (imc<=20 && imc>=25) {
+            persona.setImc(0);
+        }
+        else if(imc>25) {
+            persona.setImc(1);
+        }
+        return persona.getImc();
     }
     
 }

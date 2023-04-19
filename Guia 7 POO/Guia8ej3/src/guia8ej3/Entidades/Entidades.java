@@ -30,6 +30,7 @@ public class Entidades {
     private int peso;
     private double altura;
     private boolean esMayor;
+    private int imc;
     
     //Constructores
     
@@ -66,7 +67,11 @@ public class Entidades {
     public void setEsMayor(boolean esMayor) {
         this.esMayor = esMayor;
     }
-    
+
+    public void setImc(int imc) {
+        this.imc = imc;
+    }
+        
         
     //Getters
 
@@ -93,15 +98,21 @@ public class Entidades {
     public boolean isEsMayor() {
         return esMayor;
     }
-           
+
+    public int getImc() {
+        return imc;
+    }
+                   
      //Metodos
     
     // To Strings
 
     @Override
     public String toString() {
-        return "Entidades{" + "nombre=" + nombre + ", edad=" + edad + ", sexo=" + sexo + ", peso=" + peso + ", altura=" + altura + ", esMayor=" + esMayor + '}';
+        return "Entidades{" + "nombre=" + nombre + ", edad=" + edad + ", sexo=" + sexo + ", peso=" + peso + ", altura=" + altura + ", esMayor=" + esMayor + ", imc=" + imc + '}';
     }
+
+    
     
     
 
