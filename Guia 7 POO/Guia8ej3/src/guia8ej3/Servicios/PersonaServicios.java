@@ -51,10 +51,11 @@ public class PersonaServicios {
     
     public boolean EsMayorDeEdad(Entidades persona){
         
-        if (persona.getEdad() >= 18){
-            persona.setEsMayor(true);
-        }
-        return persona.isEsMayor();
+//        if (persona.getEdad() >= 18){
+//            persona.setEsMayor(true);
+//        }
+//        return persona.isEsMayor();
+        return (persona.getEdad()>=18);
     }
     
     public int CalcularIMC(Entidades persona){
