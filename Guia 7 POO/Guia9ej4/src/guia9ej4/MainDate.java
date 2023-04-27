@@ -6,7 +6,7 @@
 package guia9ej4;
 
 import guia9ej4.FechaService.FechaService;
-import java.util.Date;
+import java.util.Calendar;
 /**
  *
  * @author AusA
@@ -20,15 +20,22 @@ public class MainDate {
         // TODO code application logic here
         
         FechaService fecha = new FechaService();
+//        
+        Calendar fechaNacimiento = fecha.fechaNacimiento();
+
+        int anio = fechaNacimiento.get(Calendar.YEAR);
+        int mes = fechaNacimiento.get(Calendar.MONTH);
+        int dia = fechaNacimiento.get(Calendar.DAY_OF_MONTH);
+
+        System.out.println(dia + "-" + (mes+1) + "-" + anio);        
+
+        System.out.println("La fecha actual es " + fecha.fechaActual().getTime());
         
-        Date fechaNacimiento = fecha.fechaNacimiento();
+        System.out.println("Tu edad es " + fecha.diferencia());
         
-        System.out.println(fechaNacimiento.getDate() + "-" + fechaNacimiento.getMonth() + "-" + fechaNacimiento.getYear());
-        System.out.println("La fecha actual es " + fecha.fechaActual());
+        int diaSemana = fechaNacimiento.get(Calendar.DAY_OF_WEEK);
         
-        System.out.println("Tu edad es " + fecha.diferencia(fechaNacimiento));
-        
-        
+        System.out.println(diaSemana);
     }
     
 }
